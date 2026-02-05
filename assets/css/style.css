@@ -1,0 +1,196 @@
+/* =========================================
+   1. GENEL RESET VE TEMEL AYARLAR
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --sidebar-color: #1a252f;
+    --primary-green: #2ecc71;
+    --light-bg: #f4f7f6;
+    --text-color: #2c3e50;
+    --card-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================================
+   2. SOL MENÜ (SIDEBAR) - SABİT
+   ========================================= */
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-color);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 25px;
+    color: white;
+    z-index: 1000;
+}
+
+.sidebar h2 {
+    color: var(--primary-green);
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 22px;
+    border-bottom: 1px solid #34495e;
+    padding-bottom: 15px;
+}
+
+.sidebar a {
+    display: block;
+    color: #bdc3c7;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: 0.3s all;
+}
+
+.sidebar a:hover {
+    background-color: #34495e;
+    color: white;
+    transform: translateX(5px);
+}
+
+/* =========================================
+   3. ANA İÇERIK ALANI
+   ========================================= */
+.main-content {
+    margin-left: 260px;
+    padding: 40px;
+    width: calc(100% - 260px);
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: var(--sidebar-color);
+}
+
+/* =========================================
+   4. KART VE FORM TASARIMI (KESİN HİZALAMA)
+   ========================================= */
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 30px;
+}
+
+.card h3 {
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary-green);
+    padding-left: 15px;
+    font-size: 18px;
+}
+
+/* KUTULARI BÜYÜTEN VE BOŞLUĞU YOK EDEN KISIM */
+.card form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Alanı tam 2 eşit parçaya böler */
+    gap: 20px;
+    width: 100%; /* Formu kartın dış sınırlarına kadar dayar */
+}
+
+.card input {
+    width: 100%; /* Kutuyu, kendisine ayrılan yarıyı tam dolduracak kadar büyütür */
+    padding: 14px 18px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.3s;
+    background: #fcfcfc;
+}
+
+.card input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    background: white;
+    box-shadow: 0 0 8px rgba(46, 204, 113, 0.15);
+}
+
+/* KAYDET BUTONU - KUTULARLA AYNI GENİŞLİKTE */
+button[name="btnKaydet"], .card button {
+    grid-column: span 2; /* 2 sütunu da birleştirerek tam genişlik sağlar */
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+button[name="btnKaydet"]:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+/* =========================================
+   5. TABLO TASARIMI
+   ========================================= */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+table tr {
+    background: white;
+    transition: 0.2s;
+}
+
+table tr:hover {
+    transform: scale(1.005);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+table th {
+    background: #f8f9fa;
+    padding: 15px;
+    text-align: left;
+    color: #7f8c8d;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+table td {
+    padding: 18px 15px;
+    border-top: 1px solid #f1f2f6;
+    border-bottom: 1px solid #f1f2f6;
+}
+
+table td:first-child { border-left: 1px solid #f1f2f6; border-radius: 10px 0 0 10px; }
+table td:last-child { border-right: 1px solid #f1f2f6; border-radius: 0 10px 10px 0; }
+
+.btn-sil {
+    background-color: #ff4757;
+    color: white !important;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-sil:hover {
+    background-color: #ff6b81;
+    box-shadow: 0 4px 8px rgba(255, 71, 87, 0.3);
+}
